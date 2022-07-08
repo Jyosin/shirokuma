@@ -172,6 +172,10 @@ class SiamTracker(object):
                 x_crop = x_crop.float().mul(1.0 / 255.0).clamp(0.0, 1.0)
                 x_crop = tvisf.normalize(x_crop, self.mean, self.std, self.inplace)
             x_crop = x_crop.unsqueeze(0).cuda()
+
+        import pdb
+        pdb.set_trace()
+        
         outputs = self.model.track({'search': x_crop})
 
         if self.config.MODEL.NAME in ['AutoMatch']:
