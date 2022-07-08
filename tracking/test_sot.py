@@ -108,6 +108,9 @@ def main():
     dataset = dataset_loader.load()
     video_keys = list(dataset.keys()).copy()
     
+    import pdb
+    pdb.set_trace()
+
     if 'Siam' in config.MODEL.NAME or config.MODEL.NAME in ['Ocean', 'OceanPlus', 'AutoMatch', 'TransT', 'CNNInMo', 'TransInMo']:
         siam_tracker = tracker_builder.SiamTracker(config)
         siambuilder = builder.Siamese_builder(config)
