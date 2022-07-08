@@ -69,6 +69,9 @@ def track(inputs):
             times.append(0.02)  # just used for testing on online saver which requires time recording, e.g. got10k
 
         elif f > start_frame:  # tracking
+            import pdb
+            pdb.set_trace()
+            
             state = siam_tracker.track(im)
 
             location = boxhelper.cxy_wh_2_rect(state['pos'], state['sz'])
