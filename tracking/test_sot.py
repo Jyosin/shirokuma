@@ -37,6 +37,10 @@ def parse_args():
 
 
 def track(inputs):
+    
+    import pdb
+    pdb.set_trace()
+    
     siam_tracker, siam_net, video_info, args, config = inputs['tracker'], inputs['network'], inputs['video_info'], \
                                                inputs['args'], inputs['config']
 
@@ -71,7 +75,7 @@ def track(inputs):
         elif f > start_frame:  # tracking
             import pdb
             pdb.set_trace()
-            
+
             state = siam_tracker.track(im)
 
             location = boxhelper.cxy_wh_2_rect(state['pos'], state['sz'])
