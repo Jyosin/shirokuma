@@ -109,6 +109,8 @@ def epoch_train(config, logger, writer_dict, wandb_instance=None, args=None):
         if not config.TRAIN.DDP.ISTRUE:
             train_loader = DataLoader(train_set, batch_size=config.TRAIN.BATCH * gpu_num, num_workers=config.TRAIN.WORKERS,
                                       pin_memory=True, sampler=None, drop_last=True)
+            import pdb
+            pdb.set_trace()
         else:
             sampler = DistributedSampler(train_set, num_replicas=world_size, rank=local_rank, shuffle=True, seed=42)
             
